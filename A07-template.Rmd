@@ -1,7 +1,7 @@
 ---
 title: "A06- ggplot"
-author: "YOUR NAME"
-date: "DATE"
+author: "Sangeeta"
+date: "7/23/24"
 output: html_notebook
 ---
 
@@ -69,7 +69,14 @@ When you make your plot, you will likely find that the axis range is being set b
 
 ```{r}
 ### Your code here
+NewData <- Trips %>%
+  mutate(tripduration = as.numeric(edate - sdate)) %>%
+  filter(tripduration < 13000)
 
+ggplot(NewData) +
+  aes(x = client, y = tripduration) +
+  geom_boxplot(fill = "#112446") +
+  theme_minimal()
 
 ```
 
