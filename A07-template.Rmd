@@ -110,7 +110,7 @@ You can use [Figure 18.3](https://dtkaplan.github.io/DataComputingEbook/project-
 
 ```{r}
 ### Your Code Here
-library(esquisse)
+
 ggplot(Trips) +
   aes(x= lubridate::yday(sdate)) + 
   geom_histogram(binwidth = 1)
