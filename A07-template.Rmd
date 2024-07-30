@@ -110,46 +110,60 @@ You can use [Figure 18.3](https://dtkaplan.github.io/DataComputingEbook/project-
 
 ```{r}
 ### Your Code Here
+library(esquisse)
+ggplot(Trips) +
+  aes(x= lubridate::yday(sdate)) + 
+  geom_histogram(binwidth = 1)
+
 
 ```
 
 
 My observations here..... 
+People seem to check bikes out more earlier in the year, with a decline as the years go on. There was a steep drop off around the 330 day mark, indicating that very few people rented bikes out on that day. It also seems that the renting service only began on day 275 of the year, as there are no bikes rented out before then.
 
 
 ### Day of Week
 
 ```{r}
 ### Your Code Here
+ggplot(Trips) +
+  aes(x= lubridate::wday(sdate)) + 
+  geom_histogram(binwidth = 1)
 
 ```
 
 
 My observations here..... 
-
+The number of bikes rented out during the week seems to be generally the same regardless of day of the week. Sunday and Saturday are the days with the lowest number of rentals, with Thursday having the most.
 
 
 ### Hour of Day
 
 ```{r}
 ### Your Code Here
-
+ggplot(Trips) +
+  aes(x= lubridate::hour(sdate)) + 
+  geom_histogram(binwidth = 1)
 ```
 
 
 My observations here..... 
-
+There are very few rentals in the first few hours of the day. There is a sharp spike in rentals at around 6 hours into the day, and another one at around 17 hours. After 17 hours, there is a gentle taper off as the day ends.
 
 
 ### Minute of Hour
 
 ```{r}
 ### Your Code Here
-
+ggplot(Trips) +
+  aes(x= lubridate::minute(sdate)) + 
+  geom_histogram(binwidth = 1)
 ```
 
 
 My observations here..... 
+The number of rentals does not vary much throughout the hour. The most rentals happen around the forty minute mark, though that is also where the most variation is, as there are valleys as well. It does not seem that the minute of hours impacts bike rentals.
 
 
 ## Question 3: Grouping
